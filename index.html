@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: oklch(97.5% 0.008 85); color: oklch(18% 0.02 82); -webkit-font-smoothing: antialiased; }
+    img { display: block; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    /* ─── RESPONSIVE ─── */
+    @media (min-width: 768px) {
+      [data-mobile-burger] { display: none !important; }
+      [data-mobile-menu]   { display: none !important; }
+    }
+    @media (max-width: 767px) {
+      [data-nav-inner]  { padding: 0 20px !important; }
+      [data-desktop-nav]{ display: none !important; }
+      [data-hero] { flex-direction: column !important; min-height: auto !important; }
+      [data-hero-text] { flex: none !important; width: 100% !important; padding: 48px 24px 44px !important; order: 2 !important; }
+      [data-hero-img]  { flex: none !important; width: 100% !important; height: 60vw !important; min-height: 220px !important; order: 1 !important; position: relative !important; }
+      [data-hero-h1]   { font-size: 52px !important; line-height: 0.92 !important; }
+      [data-philosophy] { padding: 56px 24px !important; }
+      [data-philosophy] blockquote { font-size: 22px !important; }
+      [data-teasers-wrap] { padding: 56px 20px !important; }
+      [data-teaser-grid]  { grid-template-columns: 1fr 1fr !important; }
+      [data-craft-grid]   { grid-template-columns: 1fr !important; }
+      [data-craft-img]    { height: 58vw !important; min-height: 180px !important; }
+      [data-craft-text]   { padding: 48px 24px !important; }
+      [data-home-cta]     { padding: 60px 24px !important; }
+      [data-home-cta-h]   { font-size: 34px !important; }
+      [data-page-wrap]    { padding: 56px 24px 80px !important; }
+      [data-page-header]  { padding: 56px 24px 40px !important; margin-bottom: 48px !important; }
+      [data-page-h1]      { font-size: 44px !important; }
+      [data-model-row]    { grid-template-columns: 1fr !important; gap: 40px !important; margin-bottom: 64px !important; }
+      [data-model-h2]     { font-size: 40px !important; }
+      [data-model-placeholder] { aspect-ratio: 16/9 !important; }
+      [data-model-cta]    { padding: 40px 24px !important; flex-direction: column !important; gap: 20px !important; }
+      [data-gallery-wrap] { padding: 56px 24px !important; }
+      [data-gallery-grid] { grid-template-columns: 1fr !important; grid-template-rows: 260px 260px 260px !important; }
+      [data-gallery-main] { grid-row: auto !important; }
+      [data-cases-hero]   { height: 52vw !important; min-height: 200px !important; }
+      [data-cases-grid]   { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 24px !important; }
+      [data-author-grid]  { grid-template-columns: 1fr !important; gap: 40px !important; }
+      [data-author-photo] { max-width: 260px !important; }
+      [data-author-quote] { font-size: 21px !important; }
+      [data-author-row]   { flex-direction: column !important; gap: 2px !important; }
+      [data-author-lbl]   { min-width: 0 !important; }
+      [data-contact-split]{ grid-template-columns: 1fr !important; min-height: auto !important; }
+      [data-contact-panel]{ padding: 48px 24px !important; }
+      [data-contact-right]{ display: none !important; }
+      [data-contact-phone]{ font-size: 36px !important; }
+      [data-contact-name] { font-size: 28px !important; }
+      [data-footer]       { padding: 36px 24px !important; flex-direction: column !important; align-items: center !important; gap: 24px !important; text-align: center !important; }
+      [data-footer-links] { gap: 16px 28px !important; flex-wrap: wrap !important; justify-content: center !important; }
+    }
+    @media (max-width: 480px) {
+      [data-teaser-grid] { grid-template-columns: 1fr !important; }
+      [data-hero-h1]     { font-size: 42px !important; }
+    }
+  </style>
+</helmet>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav data-nav-inner style="position:fixed;top:0;left:0;right:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;background:oklch(97.5% 0.008 85);border-bottom:1px solid oklch(88% 0.010 82);">
+  <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;letter-spacing:0.28em;color:oklch(18% 0.02 82);text-transform:uppercase;padding:0;line-height:1;" style-hover="color:oklch(59% 0.095 62);">Ars Chrono</button>
+
+  <div data-desktop-nav style="display:flex;align-items:center;gap:48px;">
+    <button onClick="{{ goModels }}" style="{{ modelsNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Modele</button>
+    <button onClick="{{ goGallery }}" style="{{ galleryNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Galeria</button>
+    <button onClick="{{ goCases }}" style="{{ casesNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Dekle</button>
+    <button onClick="{{ goAuthor }}" style="{{ authorNavStyle }}" style-hover="color:oklch(18% 0.02 82);">O Autorze</button>
+    <button onClick="{{ goContact }}" style="{{ contactNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Kontakt</button>
+  </div>
+
+  <button data-mobile-burger onClick="{{ toggleMenu }}" style="display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;padding:8px 4px;">
+    <span style="display:block;width:22px;height:1.5px;background:oklch(18% 0.02 82);transition:transform 0.2s;"></span>
+    <span style="display:block;width:22px;height:1.5px;background:oklch(18% 0.02 82);"></span>
+    <span style="display:block;width:22px;height:1.5px;background:oklch(18% 0.02 82);transition:transform 0.2s;"></span>
+  </button>
+</nav>
+
+<!-- Mobile dropdown menu -->
+<sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+  <div data-mobile-menu style="display:flex;position:fixed;top:72px;left:0;right:0;z-index:999;background:oklch(97.5% 0.008 85);border-bottom:1px solid oklch(88% 0.010 82);flex-direction:column;padding:0 24px;">
+    <button onClick="{{ goModels }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">Modele</button>
+    <button onClick="{{ goGallery }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">Galeria</button>
+    <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">Dekle</button>
+    <button onClick="{{ goAuthor }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">O Autorze</button>
+    <button onClick="{{ goContact }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;width:100%;">Kontakt</button>
+  </div>
+</sc-if>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<main style="padding-top:72px;min-height:100vh;">
+
+  <!-- ─── HOME ─── -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div style="animation:fadeUp 0.65s ease both;">
+
+      <!-- HERO -->
+      <section data-hero style="min-height:calc(100vh - 72px);display:flex;align-items:stretch;">
+        <div data-hero-text style="flex:0 0 46%;padding:88px 72px 88px 80px;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 36px 2px;">Polskie rzemiosło zegarmistrzowskie</p>
+          <h1 data-hero-h1 style="font-family:'Cormorant Garamond',serif;font-size:96px;font-weight:300;line-height:0.9;letter-spacing:0.07em;color:oklch(18% 0.02 82);margin:0 0 44px 0;text-transform:uppercase;">Ars<br>Chrono</h1>
+          <div style="width:44px;height:1px;background:oklch(59% 0.095 62);margin-bottom:44px;"></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;font-style:italic;line-height:1.65;color:oklch(32% 0.022 82);margin:0 0 52px 0;max-width:380px;">Zegarki tworzone z pasją i zamknięte w precyzji rzemiosła — każdy egzemplarz jest jedyny w swoim rodzaju.</p>
+          <button onClick="{{ goModels }}" style="background:none;border:1px solid oklch(18% 0.02 82);cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(18% 0.02 82);padding:17px 44px;width:fit-content;transition:background 0.3s,color 0.3s;" style-hover="background:oklch(18% 0.02 82);color:oklch(97.5% 0.008 85);">Poznaj modele</button>
+        </div>
+        <div data-hero-img style="flex:1;position:relative;overflow:hidden;">
+          <img src="uploads/pasted-1782667694331-0.png" alt="Ars Chrono — Obsession" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:55% center;" />
+        </div>
+      </section>
+
+      <!-- PHILOSOPHY -->
+      <section data-philosophy style="background:oklch(21% 0.055 256);padding:88px 160px;text-align:center;">
+        <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 36px 0;">Filozofia</p>
+        <blockquote style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;font-style:italic;line-height:1.55;color:oklch(93% 0.010 85);margin:0 auto 36px;max-width:820px;">"Zegarek to nie narzędzie do odmierzania czasu — to przedmiot, który określa naszą osobowość i marzenia."</blockquote>
+        <p style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;letter-spacing:0.1em;color:oklch(58% 0.015 250);margin:0;">Paweł Jankowski — Twórca Ars Chrono</p>
+      </section>
+
+      <!-- MODELS TEASER -->
+      <section data-teasers-wrap style="padding:96px 80px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:56px;">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;letter-spacing:0.05em;color:oklch(18% 0.02 82);margin:0;">Kolekcja</h2>
+          <button onClick="{{ goModels }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(59% 0.095 62);padding:0;" style-hover="color:oklch(18% 0.02 82);">Wszystkie modele →</button>
+        </div>
+        <div data-teaser-grid style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;">
+          <sc-for list="{{ modelTeasers }}" as="m" hint-placeholder-count="4">
+            <div onClick="{{ goModels }}" style="cursor:pointer;background:oklch(93.5% 0.013 82);padding:44px 32px 40px;transition:background 0.2s;" style-hover="background:oklch(90% 0.016 82);">
+              <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">{{ m.num }}</p>
+              <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:oklch(18% 0.02 82);margin:0 0 16px 0;letter-spacing:0.03em;">{{ m.name }}</h3>
+              <p style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;line-height:1.75;color:oklch(42% 0.018 82);margin:0 0 32px 0;">{{ m.brief }}</p>
+              <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(18% 0.02 82);margin:0;">Szczegóły →</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- CRAFTSMANSHIP -->
+      <section data-craft-grid style="display:grid;grid-template-columns:1fr 1fr;min-height:580px;">
+        <div data-craft-img style="position:relative;overflow:hidden;min-height:320px;">
+          <img src="uploads/pasted-1782667730672-0.png" alt="Dekel Ars Chrono" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div data-craft-text style="background:oklch(93.5% 0.013 82);padding:80px 72px;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 24px 0;">Rzemiosło</p>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.2;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 32px 0;">Każdy detal wykonany ręcznie w Polsce</h2>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 20px 0;">Koperta, tarcze, wskazówki i autorskie moduły — każdy element projektowany, wykonywany i składany ręcznie przez Pawła Jankowskiego.</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 44px 0;">Do każdego zegarka dołączany jest dedykowany pasek ręcznie wykonany przez rzemieślnika Santino.</p>
+          <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(59% 0.095 62);padding:0;text-align:left;" style-hover="color:oklch(18% 0.02 82);">Dekle i grafiki →</button>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section data-home-cta style="padding:96px 80px;text-align:center;">
+        <p data-home-cta-h style="font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;font-style:italic;color:oklch(18% 0.02 82);margin:0 0 20px 0;">Zamów swój zegarek</p>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;font-weight:300;letter-spacing:0.05em;color:oklch(45% 0.018 82);margin:0 0 44px 0;">Każdy egzemplarz konsultowany bezpośrednio z nabywcą — nie ma dwóch takich samych.</p>
+        <button onClick="{{ goContact }}" style="background:oklch(21% 0.055 256);border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(93% 0.010 85);padding:19px 60px;transition:background 0.3s;" style-hover="background:oklch(28% 0.055 256);">Skontaktuj się</button>
+      </section>
+    </div>
+  </sc-if>
+
+  <!-- ─── MODELS ─── -->
+  <sc-if value="{{ isModels }}" hint-placeholder-val="{{ false }}">
+    <div data-page-wrap style="animation:fadeUp 0.65s ease both;padding:80px 80px 96px;">
+      <div data-page-header style="border-bottom:1px solid oklch(88% 0.010 82);padding-bottom:56px;margin-bottom:80px;">
+        <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Kolekcja</p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Nasze Modele</h1>
+      </div>
+
+      <!-- REGULATOR -->
+      <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:96px;align-items:center;">
+        <div>
+          <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Model 01</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Regulator</h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Czas mierzony precyzją</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model charakteryzujący się decentralnie osadzoną wskazówką minutową — rozwiązanie zaczerpnięte ze świata chronometrii precyzyjnej. Tarcze z tytanu, mosiądzu lub alpaki pokrywane są rodem lub 24-karatowym złotem. Niektóre tarcze składają się z 51 starannie wykonanych elementów.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Decentralnie osadzona wskazówka minutowa</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Tarcze: tytan, mosiądz lub alpaka</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Powłoka rodem lub złotem 24 karaty</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Do 51 elementów w jednej tarczy</span></li>
+          </ul>
+        </div>
+        <div data-model-placeholder style="background:oklch(93.5% 0.013 82);aspect-ratio:4/3;position:relative;overflow:hidden;border:1px solid oklch(87% 0.010 82);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="s1" patternUnits="userSpaceOnUse" width="24" height="24" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="24" stroke="#ddd" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#s1)"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(65% 0.015 82);margin:0;">Zdjęcie modelu</p><p style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:oklch(50% 0.018 82);margin:0;">Regulator</p></div>
+        </div>
+      </div>
+
+      <div style="height:1px;background:oklch(88% 0.010 82);margin-bottom:96px;"></div>
+
+      <!-- DEKOMPRESJA -->
+      <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:96px;align-items:center;">
+        <div data-model-placeholder style="background:oklch(93.5% 0.013 82);aspect-ratio:4/3;position:relative;overflow:hidden;border:1px solid oklch(87% 0.010 82);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="s2" patternUnits="userSpaceOnUse" width="24" height="24" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="24" stroke="#ddd" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#s2)"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(65% 0.015 82);margin:0;">Zdjęcie modelu</p><p style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:oklch(50% 0.018 82);margin:0;">Dekompresja</p></div>
+        </div>
+        <div>
+          <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Model 02</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Dekompresja</h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Ogień zamknięty w tytanie</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model z decentralną wskazówką godzinową i minutową oraz małą sekundą na godzinie 6. Tytanowa tarcza barwiona ogniowo na kolor niebieski lub fioletowy — proces niezwykle trudny, unikalny na polską skalę.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Mała sekunda na godzinie 6</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Tarcza tytanowa barwiona ogniowo</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Kolor niebieski lub fioletowy</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Unikatowy proces na polską skalę</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="height:1px;background:oklch(88% 0.010 82);margin-bottom:96px;"></div>
+
+      <!-- DÉJÀ VU -->
+      <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:96px;align-items:center;">
+        <div>
+          <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Model 03</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Déjà-Vu</h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Perła emalii piecowej</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model uznawany przez autora za "perełkę" kolekcji. Emaliowana tarcza wykonana metodą piecową nadaje jej wyjątkowo lśniącą, szklistą powierzchnię i wysoką wartość kolekcjonerską.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Emaliowana tarcza metodą piecową</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Lśniąca, szklista powierzchnia</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Wysoka wartość kolekcjonerska</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Grawerowany motyw 3D</span></li>
+          </ul>
+        </div>
+        <div data-model-placeholder style="background:oklch(93.5% 0.013 82);aspect-ratio:4/3;position:relative;overflow:hidden;border:1px solid oklch(87% 0.010 82);">
+          <svg style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="s3" patternUnits="userSpaceOnUse" width="24" height="24" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="24" stroke="#ddd" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#s3)"/></svg>
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(65% 0.015 82);margin:0;">Zdjęcie modelu</p><p style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:oklch(50% 0.018 82);margin:0;">Déjà-Vu</p></div>
+        </div>
+      </div>
+
+      <div style="height:1px;background:oklch(88% 0.010 82);margin-bottom:96px;"></div>
+
+      <!-- OBSESSION -->
+      <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div style="overflow:hidden;aspect-ratio:4/3;">
+          <img src="uploads/pasted-1782667708709-0.png" alt="Ars Chrono Obsession" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div>
+          <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Model 04</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Obsession</h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Maestria metody treblage</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model z tarczą wykonaną wymagającą metodą treblage, z indeksami rzymskimi lub arabskimi. Każdy egzemplarz w pełni indywidualny — szczegóły zamówienia konsultowane bezpośrednio z nabywcą.</p>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Tarcza metodą treblage</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Indeksy: rzymskie lub arabskie</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Pełna personalizacja</span></li>
+            <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Ręcznie robiony pasek Santino</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div data-model-cta style="margin-top:96px;background:oklch(21% 0.055 256);padding:56px 80px;display:flex;align-items:center;justify-content:space-between;">
+        <div><p style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;font-style:italic;color:oklch(93% 0.010 85);margin:0 0 8px 0;">Zamów swój egzemplarz</p><p style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(58% 0.015 250);margin:0;">Konsultacja bezpośrednio z twórcą</p></div>
+        <button onClick="{{ goContact }}" style="background:none;border:1px solid oklch(55% 0.015 250);cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(90% 0.010 85);padding:16px 44px;transition:border-color 0.25s;" style-hover="border-color:oklch(90% 0.010 85);">Kontakt</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ─── GALLERY ─── -->
+  <sc-if value="{{ isGallery }}" hint-placeholder-val="{{ false }}">
+    <div data-gallery-wrap style="animation:fadeUp 0.65s ease both;padding:80px;">
+      <div data-page-header style="border-bottom:1px solid oklch(88% 0.010 82);padding-bottom:56px;margin-bottom:72px;">
+        <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Fotografia</p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Galeria</h1>
+      </div>
+      <div data-gallery-grid style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:380px 380px;gap:4px;">
+        <div data-gallery-main style="grid-row:1/3;overflow:hidden;">
+          <img src="uploads/pasted-1782667694331-0.png" alt="Ars Chrono Obsession — skórzany pasek" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div style="overflow:hidden;">
+          <img src="uploads/pasted-1782667708709-0.png" alt="Ars Chrono Obsession — pasek nato" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;" />
+        </div>
+        <div style="overflow:hidden;">
+          <img src="uploads/pasted-1782667730672-0.png" alt="Ars Chrono — dekel zegarka" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+      </div>
+      <div style="text-align:center;padding:72px 0 32px;">
+        <p style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 12px 0;">Galeria jest regularnie aktualizowana</p>
+        <p style="font-family:'Jost',sans-serif;font-size:12px;font-weight:300;letter-spacing:0.08em;color:oklch(62% 0.015 82);margin:0;">Kolejne zdjęcia wkrótce</p>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ─── CASES ─── -->
+  <sc-if value="{{ isCases }}" hint-placeholder-val="{{ false }}">
+    <div style="animation:fadeUp 0.65s ease both;">
+      <div data-page-header style="padding:80px 80px 56px;border-bottom:1px solid oklch(88% 0.010 82);">
+        <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Rzemiosło</p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Dekle i Grafiki</h1>
+      </div>
+      <div data-cases-hero style="position:relative;overflow:hidden;height:65vh;">
+        <img src="uploads/pasted-1782667730672-0.png" alt="Dekel zegarka Dekompresja" style="width:100%;height:100%;object-fit:cover;" />
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:48px 80px;background:linear-gradient(transparent,rgba(10,12,20,0.72));">
+          <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 10px 0;">Dekompresja</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:oklch(95% 0.008 85);margin:0;">Dekel zegarka — ręczne grawerowanie</p>
+        </div>
+      </div>
+      <div data-cases-grid style="padding:80px;display:grid;grid-template-columns:1fr 1fr;gap:96px;">
+        <div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 32px 0;line-height:1.2;">Każdy zegarek nosi swój znak</h2>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 20px 0;">Na każdym modelu wygrawerowany jest trójwymiarowy motyw odpowiadający nazwie zegarka. Grawerowanie to rzemiosło samo w sobie — każda linia i zagłębienie wykonane ręcznie, z niezwykłą precyzją.</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0;">Dekle stają się miniaturowymi dziełami sztuki — medalionami kryjącymi w sobie precyzyjny mechanizm zegarowy.</p>
+        </div>
+        <div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:oklch(18% 0.02 82);margin:0 0 28px 0;">Motyw Dekompresja</h3>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 20px 0;">Dekel modelu Dekompresja zdobi ręcznie grawerowana scena architektoniczna — miniatura pełna szczegółów, utrwalona w metalu. Napis na otoku: „ARS-CHRONO — HAND MADE — DEKOMPRESJA" podkreśla rzemieślnicze pochodzenie.</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0;">Każdy dekel jest unikatowy — motyw konsultowany z nabywcą i może być w pełni personalizowany.</p>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ─── AUTHOR ─── -->
+  <sc-if value="{{ isAuthor }}" hint-placeholder-val="{{ false }}">
+    <div data-page-wrap style="animation:fadeUp 0.65s ease both;padding:80px;">
+      <div data-page-header style="border-bottom:1px solid oklch(88% 0.010 82);padding-bottom:56px;margin-bottom:80px;">
+        <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Twórca</p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">O Autorze</h1>
+      </div>
+      <div data-author-grid style="display:grid;grid-template-columns:380px 1fr;gap:96px;align-items:start;">
+        <div data-author-photo>
+          <div style="background:oklch(93.5% 0.013 82);aspect-ratio:3/4;position:relative;overflow:hidden;border:1px solid oklch(87% 0.010 82);margin-bottom:24px;">
+            <svg style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="s4" patternUnits="userSpaceOnUse" width="24" height="24" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="24" stroke="#ddd" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#s4)"/></svg>
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;"><p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(65% 0.015 82);margin:0;">Portret</p><p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:oklch(50% 0.018 82);margin:0;">Paweł Jankowski</p></div>
+          </div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:oklch(18% 0.02 82);margin:0 0 4px 0;">Paweł Jankowski</p>
+          <p style="font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0;">Twórca Ars Chrono</p>
+        </div>
+        <div style="padding-top:8px;">
+          <p data-author-quote style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;font-style:italic;line-height:1.55;color:oklch(30% 0.025 82);margin:0 0 52px 0;">"Zegarki Ars Chrono to moja obsesja i moja duma — każdy z nich jest kawałkiem mnie samego."</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 20px 0;">Paweł Jankowski to polski zegarmistrz i artysta, który każdy zegarek traktuje jako wyjątkowe dzieło rzemiosła. Projektuje, wykonuje i składa każdy element — od koperty po wskazówki — ręcznie, w swojej pracowni w Polsce.</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 20px 0;">Bazą zegarków jest sprawdzony mechanizm Unitas 6498, w niektórych modelach modyfikowany autorskimi modułami. Mechanizm to jedyny element niestworzony przez Pawła — wszystko inne rodzi się w jego rękach.</p>
+          <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 52px 0;">Każde zamówienie to osobista rozmowa z nabywcą. Paweł wierzy, że zegarek powinien odzwierciedlać osobowość i marzenia właściciela — dlatego nie ma dwóch takich samych egzemplarzy Ars Chrono.</p>
+          <div style="padding:32px 36px;background:oklch(93.5% 0.013 82);display:flex;flex-direction:column;gap:18px;">
+            <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0;">Produkcja i materiały</p>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div data-author-row style="display:flex;gap:0;"><span data-author-lbl style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(55% 0.015 82);min-width:180px;">Koperta</span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Ręcznie projektowana i wykonywana</span></div>
+              <div data-author-row style="display:flex;gap:0;"><span data-author-lbl style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(55% 0.015 82);min-width:180px;">Tarcze</span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Tytan, mosiądz, alpaka — ręcznie</span></div>
+              <div data-author-row style="display:flex;gap:0;"><span data-author-lbl style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(55% 0.015 82);min-width:180px;">Mechanizm</span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Unitas 6498, modyfikowany autorsko</span></div>
+              <div data-author-row style="display:flex;gap:0;"><span data-author-lbl style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(55% 0.015 82);min-width:180px;">Pasek</span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Ręcznie robiony — rzemieślnik Santino</span></div>
+              <div data-author-row style="display:flex;gap:0;"><span data-author-lbl style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(55% 0.015 82);min-width:180px;">Kraj produkcji</span><span style="font-family:'Jost',sans-serif;font-size:13px;font-weight:300;color:oklch(35% 0.018 82);">Polska</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- ─── CONTACT ─── -->
+  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <div style="animation:fadeUp 0.65s ease both;">
+      <div data-page-header style="padding:80px 80px 56px;border-bottom:1px solid oklch(88% 0.010 82);">
+        <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Zamówienia i pytania</p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Kontakt</h1>
+      </div>
+      <div data-contact-split style="display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 280px);">
+        <div data-contact-panel style="padding:80px;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;line-height:1.55;color:oklch(32% 0.025 82);margin:0 0 72px 0;max-width:420px;">Każdy egzemplarz konsultowany bezpośrednio z nabywcą — nie ma dwóch takich samych zegarków Ars Chrono.</p>
+          <div style="display:flex;flex-direction:column;gap:52px;">
+            <div>
+              <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 14px 0;">Twórca</p>
+              <p data-contact-name style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:400;color:oklch(18% 0.02 82);margin:0;letter-spacing:0.03em;">Paweł Jankowski</p>
+            </div>
+            <div>
+              <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 14px 0;">Telefon</p>
+              <a href="tel:601221948" data-contact-phone style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:oklch(18% 0.02 82);letter-spacing:0.06em;text-decoration:none;display:block;transition:color 0.25s;" style-hover="color:oklch(59% 0.095 62);">601 221 948</a>
+            </div>
+            <div>
+              <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 14px 0;">Produkcja</p>
+              <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;color:oklch(35% 0.018 82);margin:0;">Polska</p>
+            </div>
+          </div>
+        </div>
+        <div data-contact-right style="position:relative;overflow:hidden;">
+          <img src="uploads/pasted-1782667694331-0.png" alt="Ars Chrono" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:60% center;" />
+          <div style="position:absolute;inset:0;background:oklch(21% 0.055 256);opacity:0.5;"></div>
+          <div style="position:absolute;bottom:56px;left:52px;right:52px;">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;font-style:italic;color:oklch(95% 0.008 85);margin:0;line-height:1.6;">"Każdy egzemplarz to niepowtarzalna historia właściciela — zamknięta w czasie."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer data-footer style="background:oklch(21% 0.055 256);padding:48px 80px;display:flex;align-items:center;justify-content:space-between;">
+  <div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;letter-spacing:0.26em;text-transform:uppercase;color:oklch(93% 0.010 85);margin:0 0 5px 0;">Ars Chrono</p>
+    <p style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;letter-spacing:0.1em;color:oklch(52% 0.015 250);margin:0;">Polskie rzemiosło zegarmistrzowskie</p>
+  </div>
+  <div data-footer-links style="display:flex;gap:44px;">
+    <button onClick="{{ goModels }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Modele</button>
+    <button onClick="{{ goGallery }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Galeria</button>
+    <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Dekle</button>
+    <button onClick="{{ goAuthor }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">O Autorze</button>
+    <button onClick="{{ goContact }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Kontakt</button>
+  </div>
+  <p style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:oklch(42% 0.012 250);margin:0;">© {{ year }} Ars Chrono</p>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 'home', mobileMenuOpen: false };
+
+  teasers = [
+    { num: '01', name: 'Regulator',   brief: 'Decentralna wskazówka minutowa. Tarcze tytanowe, mosiężne lub z alpaki — pokrywane rodem lub złotem 24k.' },
+    { num: '02', name: 'Dekompresja', brief: 'Tytanowa tarcza barwiona ogniowo na niebiesko lub fioletowo. Unikatowy proces na polską skalę.' },
+    { num: '03', name: 'Déjà-Vu',    brief: 'Emaliowana tarcza metodą piecową — lśniąca, szklista powierzchnia o wysokiej wartości kolekcjonerskiej.' },
+    { num: '04', name: 'Obsession',   brief: 'Tarcza metodą treblage. Indeksy rzymskie lub arabskie. Pełna personalizacja na życzenie nabywcy.' },
+  ];
+
+  goTo(page) {
+    this.setState({ page, mobileMenuOpen: false });
+    window.scrollTo({ top: 0 });
+  }
+
+  toggleMenu() {
+    this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen }));
+  }
+
+  linkStyle(id) {
+    const active = this.state.page === id;
+    return [
+      'background:none', 'border:none', 'cursor:pointer',
+      "font-family:'Jost',sans-serif",
+      'font-size:11px', 'letter-spacing:0.18em', 'text-transform:uppercase',
+      'padding:4px 0', 'transition:color 0.2s',
+      active
+        ? 'color:oklch(18% 0.02 82);border-bottom:1px solid oklch(59% 0.095 62)'
+        : 'color:oklch(50% 0.018 82)',
+    ].join(';');
+  }
+
+  renderVals() {
+    const { page, mobileMenuOpen } = this.state;
+    const g = (p) => () => this.goTo(p);
+    return {
+      isHome:    page === 'home',
+      isModels:  page === 'models',
+      isGallery: page === 'gallery',
+      isCases:   page === 'cases',
+      isAuthor:  page === 'author',
+      isContact: page === 'contact',
+      mobileMenuOpen,
+      goHome:    g('home'),
+      goModels:  g('models'),
+      goGallery: g('gallery'),
+      goCases:   g('cases'),
+      goAuthor:  g('author'),
+      goContact: g('contact'),
+      toggleMenu: () => this.toggleMenu(),
+      modelsNavStyle:  this.linkStyle('models'),
+      galleryNavStyle: this.linkStyle('gallery'),
+      casesNavStyle:   this.linkStyle('cases'),
+      authorNavStyle:  this.linkStyle('author'),
+      contactNavStyle: this.linkStyle('contact'),
+      modelTeasers: this.teasers,
+      year: new Date().getFullYear(),
+    };
+  }
+}
+</script>
+</body>
+</html>
