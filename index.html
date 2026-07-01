@@ -65,6 +65,9 @@
       [data-contact-name] { font-size: 28px !important; }
       [data-footer]       { padding: 36px 24px !important; flex-direction: column !important; align-items: center !important; gap: 24px !important; text-align: center !important; }
       [data-footer-links] { gap: 16px 28px !important; flex-wrap: wrap !important; justify-content: center !important; }
+      [data-media]        { padding: 56px 24px !important; }
+      [data-media-grid]   { grid-template-columns: 1fr !important; }
+      [data-media-card]   { padding: 40px 28px !important; }
     }
     @media (max-width: 480px) {
       [data-teaser-grid] { grid-template-columns: 1fr !important; }
@@ -162,6 +165,31 @@
           <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 20px 0;">Koperta, tarcze, wskazówki i autorskie moduły — każdy element projektowany, wykonywany i składany ręcznie przez Pawła Jankowskiego. Jedynymi elementami nie mającymi takiej genezy są mechanizmy i szafirowe szkiełko. Choć z tej dwójki mechanizmy też są grawerowane, a czasem wyposażane w autorskie moduły modyfikacji mechanicznej.</p>
           <p style="font-family:'Jost',sans-serif;font-size:15px;font-weight:300;line-height:1.85;color:oklch(35% 0.018 82);margin:0 0 44px 0;">Do każdego zegarka dołączany jest dedykowany pasek ręcznie wykonany przez cenionego w środowisku entuzjastów horologii łódzkiego rzemieślnika <strong>Santino</strong>.</p>
           <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(59% 0.095 62);padding:0;text-align:left;" style-hover="color:oklch(18% 0.02 82);">Grafiki zdobiące dekle kopert →</button>
+        </div>
+      </section>
+
+      <!-- MEDIA MENTIONS -->
+      <section data-media style="padding:96px 80px;background:oklch(97.5% 0.008 85);">
+        <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">O nas piszą</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;letter-spacing:0.05em;color:oklch(18% 0.02 82);margin:0 0 56px 0;">Ars Chrono w mediach</h2>
+        <div data-media-grid style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+
+          <!-- Zegarki i Pasja -->
+          <a href="https://zegarkiipasja.pl/artykul/46679-ars-chrono" target="_blank" rel="noopener" data-media-card style="display:block;background:oklch(93.5% 0.013 82);padding:52px 48px;text-decoration:none;transition:background 0.2s;" style-hover="background:oklch(90% 0.016 82);">
+            <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Artykuł</p>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;line-height:1.25;letter-spacing:0.03em;color:oklch(18% 0.02 82);margin:0 0 16px 0;">Zegarki i Pasja</h3>
+            <p style="font-family:'Jost',sans-serif;font-size:14px;font-weight:300;line-height:1.8;color:oklch(42% 0.018 82);margin:0 0 36px 0;">Artykuł prezentujący zegarki Ars Chrono w jednym z największych polskich portali zegarkowych.</p>
+            <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0;">Czytaj artykuł →</p>
+          </a>
+
+          <!-- O Zegarkach YouTube -->
+          <a href="https://www.youtube.com/watch?v=sJNXpIHRPyc" target="_blank" rel="noopener" data-media-card style="display:block;background:oklch(21% 0.055 256);padding:52px 48px;text-decoration:none;transition:background 0.2s;" style-hover="background:oklch(26% 0.06 256);">
+            <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Film</p>
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;line-height:1.25;letter-spacing:0.03em;color:oklch(93% 0.010 85);margin:0 0 16px 0;">Kanał „O Zegarkach"</h3>
+            <p style="font-family:'Jost',sans-serif;font-size:14px;font-weight:300;line-height:1.8;color:oklch(72% 0.015 250);margin:0 0 36px 0;">Film poświęcony zegarkom Ars Chrono na popularnym polskim kanale YouTube o tematyce zegarkowej.</p>
+            <p style="font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0;">Oglądaj film →</p>
+          </a>
+
         </div>
       </section>
 
