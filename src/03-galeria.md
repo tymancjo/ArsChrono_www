@@ -15,15 +15,14 @@ Folder: `gallery_pictures/`
 Wszystkie 25 zdjęć wyświetlane w siatce. Kolejność wg numeru:
 
 ### Wyróżnione (featured grid — 3 zdjęcia, lewe duże)
-![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_1.jpg)
-![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Regulator_5.jpg)
+![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_11.jpg)
+![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_5.jpg)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_3.jpg)
 
 ### Siatka 3 kolumnowa (pozostałe 22)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_4.jpg)
 ![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_4.jpg)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_5.jpg)
-![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_5.jpg)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_6.jpg)
 ![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_6.jpg)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_7.jpg)
@@ -35,7 +34,6 @@ Wszystkie 25 zdjęć wyświetlane w siatce. Kolejność wg numeru:
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_10.jpg)
 ![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_10.jpg)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_11.jpg)
-![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_11.jpg)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_12.jpg)
 ![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_12.jpg)
 ![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_13.jpg)

@@ -43,3 +43,8 @@ Dekiel modelu Dekompresja zdobi ręcznie grawerowana scena architektoniczna — 
 
 **Akapit 2:**
 Każdy dekiel jest unikatowy — motyw konsultowany z nabywcą i może być w pełni personalizowany.
+
+## Zdjęcia poniżej (grid)
+
+![Ars Chrono, model Regulator](gallery_pictures/ArsChrono_Regulator_14.jpg)
+![Ars Chrono, model Obsesja](gallery_pictures/ArsChrono_Obssesion_4.jpg)
