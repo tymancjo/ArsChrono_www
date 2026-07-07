@@ -25,7 +25,7 @@ Model charakteryzujący się decentralnie osadzoną wskazówką minutową — ro
 
 
 **Zdjęcie:**
-gallery_pictures/ArsChrono_Obssesion_9.jpg
+gallery_pictures/ArsChrono_Regulator_9.jpg
 
 **Cechy (lista):**
 - Niecentralnie osadzona wskazówka minutowa

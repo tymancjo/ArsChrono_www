@@ -1,0 +1,2 @@
+[console_scripts]
+ac-sync = sync.cli:main

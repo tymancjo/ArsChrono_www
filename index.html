@@ -82,11 +82,11 @@
   <button onClick="{{ goHome }}" style="background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;letter-spacing:0.28em;color:oklch(18% 0.02 82);text-transform:uppercase;padding:0;line-height:1;" style-hover="color:oklch(59% 0.095 62);">Ars Chrono</button>
 
   <div data-desktop-nav style="display:flex;align-items:center;gap:48px;">
-    <button onClick="{{ goModels }}" style="{{ modelsNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Modele</button>
-    <button onClick="{{ goGallery }}" style="{{ galleryNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Galeria</button>
-    <button onClick="{{ goCases }}" style="{{ casesNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Grafiki</button>
-    <button onClick="{{ goAuthor }}" style="{{ authorNavStyle }}" style-hover="color:oklch(18% 0.02 82);">O Autorze</button>
-    <button onClick="{{ goContact }}" style="{{ contactNavStyle }}" style-hover="color:oklch(18% 0.02 82);">Kontakt</button>
+    <button onClick="{{ goModels }}" style="{{ modelsNavStyle }}" style-hover="color:oklch(18% 0.02 82);"><!-- ac:nav_models -->Modele<!-- /ac:nav_models --></button>
+    <button onClick="{{ goGallery }}" style="{{ galleryNavStyle }}" style-hover="color:oklch(18% 0.02 82);"><!-- ac:nav_gallery -->Galeria<!-- /ac:nav_gallery --></button>
+    <button onClick="{{ goCases }}" style="{{ casesNavStyle }}" style-hover="color:oklch(18% 0.02 82);"><!-- ac:nav_cases -->Grafiki<!-- /ac:nav_cases --></button>
+    <button onClick="{{ goAuthor }}" style="{{ authorNavStyle }}" style-hover="color:oklch(18% 0.02 82);"><!-- ac:nav_author -->O Autorze<!-- /ac:nav_author --></button>
+    <button onClick="{{ goContact }}" style="{{ contactNavStyle }}" style-hover="color:oklch(18% 0.02 82);"><!-- ac:nav_contact -->Kontakt<!-- /ac:nav_contact --></button>
   </div>
 
   <button data-mobile-burger onClick="{{ toggleMenu }}" style="display:flex;flex-direction:column;gap:5px;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;padding:8px 4px;">
@@ -99,11 +99,11 @@
 <!-- Mobile dropdown menu -->
 <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
   <div data-mobile-menu style="display:flex;position:fixed;top:72px;left:0;right:0;z-index:999;background:oklch(97.5% 0.008 85);border-bottom:1px solid oklch(88% 0.010 82);flex-direction:column;padding:0 24px;">
-    <button onClick="{{ goModels }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">Modele</button>
-    <button onClick="{{ goGallery }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">Galeria</button>
-    <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">Grafiki</button>
-    <button onClick="{{ goAuthor }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;">O Autorze</button>
-    <button onClick="{{ goContact }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;width:100%;">Kontakt</button>
+    <button onClick="{{ goModels }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;"><!-- ac:nav_models -->Modele<!-- /ac:nav_models --></button>
+    <button onClick="{{ goGallery }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;"><!-- ac:nav_gallery -->Galeria<!-- /ac:nav_gallery --></button>
+    <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;"><!-- ac:nav_cases -->Grafiki<!-- /ac:nav_cases --></button>
+    <button onClick="{{ goAuthor }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;border-bottom:1px solid oklch(92% 0.010 82);width:100%;"><!-- ac:nav_author -->O Autorze<!-- /ac:nav_author --></button>
+    <button onClick="{{ goContact }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(35% 0.018 82);padding:18px 0;text-align:left;width:100%;"><!-- ac:nav_contact -->Kontakt<!-- /ac:nav_contact --></button>
   </div>
 </sc-if>
 
@@ -125,15 +125,15 @@
           <button onClick="{{ goModels }}" style="background:none;border:1px solid oklch(18% 0.02 82);cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:oklch(18% 0.02 82);padding:17px 44px;width:fit-content;transition:background 0.3s,color 0.3s;" style-hover="background:oklch(18% 0.02 82);color:oklch(97.5% 0.008 85);">Poznaj modele</button>
         </div>
         <div data-hero-img style="flex:1;position:relative;overflow:hidden;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_14.jpg" alt="Ars Chrono — zegarek" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;" />
+          <img src="gallery_pictures/ArsChrono_Obssesion_14.jpg" alt="Ars Chrono, model Obsesja" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center center;" />
         </div>
       </section>
 
       <!-- PHILOSOPHY -->
       <section data-philosophy style="background:oklch(21% 0.055 256);padding:88px 160px;text-align:center;">
         <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.26em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 36px 0;">Filozofia</p>
-        <blockquote style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;font-style:italic;line-height:1.55;color:oklch(93% 0.010 85);margin:0 auto 36px;max-width:820px;">"Zegarek to nie narzędzie do odmierzania czasu — to przedmiot, który określa naszą osobowość i marzenia."</blockquote>
-        <p style="font-family:'Jost',sans-serif;font-size:16px;font-weight:400;letter-spacing:0.1em;color:oklch(58% 0.015 250);margin:0;">Paweł Jankowski — Twórca Ars Chrono</p>
+        <blockquote style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;font-style:italic;line-height:1.55;color:oklch(93% 0.010 85);margin:0 auto 36px;max-width:820px;"><!-- ac:filozofia_cytat -->"Zegarek to nie narzędzie do odmierzania czasu — to przedmiot, który określa naszą osobowość i marzenia."<!-- /ac:filozofia_cytat --></blockquote>
+        <p style="font-family:'Jost',sans-serif;font-size:16px;font-weight:400;letter-spacing:0.1em;color:oklch(58% 0.015 250);margin:0;"><!-- ac:filozofia_autor -->Paweł Jankowski — Twórca Ars Chrono<!-- /ac:filozofia_autor --></p>
       </section>
 
       <!-- MODELS TEASER -->
@@ -200,16 +200,16 @@
   <sc-if value="{{ isModels }}" hint-placeholder-val="{{ false }}">
     <div data-page-wrap style="animation:fadeUp 0.65s ease both;padding:80px 80px 96px;">
       <div data-page-header style="border-bottom:1px solid oklch(88% 0.010 82);padding-bottom:56px;margin-bottom:80px;">
-        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Kolekcja</p>
-        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Nasze Modele</h1>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;"><!-- ac:modele_label -->Kolekcja<!-- /ac:modele_label --></p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;"><!-- ac:modele_h1 -->Nasze Modele<!-- /ac:modele_h1 --></h1>
       </div>
 
       <!-- REGULATOR -->
       <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:96px;align-items:center;">
         <div>
           <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Projekt 01</p>
-          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Regulator</h2>
-          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Czas mierzony precyzją</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;"><!-- ac:model1_nazwa -->Regulator<!-- /ac:model1_nazwa --></h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;"><!-- ac:model1_podtytul -->Czas mierzony precyzją<!-- /ac:model1_podtytul --></p>
           <p style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:400;line-height:1.75;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model charakteryzujący się decentralnie osadzoną wskazówką minutową — rozwiązanie zaczerpnięte ze świata chronometrii precyzyjnej. Tarcze z tytanu, mosiądzu lub alpaki pokrywane są rodem lub 24-karatowym złotem. Niektóre z nich składają się nawet z 51 indywidualnych, starannie wykonanych elementów.</p>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
             <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:16px;font-weight:400;color:oklch(35% 0.018 82);">Niecentralnie osadzona wskazówka minutowa</span></li>
@@ -219,7 +219,7 @@
           </ul>
         </div>
         <div style="overflow:hidden;aspect-ratio:4/3;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_9.jpg" alt="Ars Chrono Regulator" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="gallery_pictures/ArsChrono_Regulator_9.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" />
         </div>
       </div>
 
@@ -228,12 +228,12 @@
       <!-- DEKOMPRESJA -->
       <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:96px;align-items:center;">
         <div style="overflow:hidden;aspect-ratio:4/3;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_13.jpg" alt="Ars Chrono Dekompresja" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="gallery_pictures/ArsChrono_Obssesion_13.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div>
           <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Projekt 02</p>
-          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Dekompresja</h2>
-          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Ogień zamknięty w tytanie</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;"><!-- ac:model2_nazwa -->Dekompresja<!-- /ac:model2_nazwa --></h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;"><!-- ac:model2_podtytul -->Ogień zamknięty w tytanie<!-- /ac:model2_podtytul --></p>
           <p style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:400;line-height:1.75;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model z niecentralną wskazówką godzinową i minutową oraz małą sekundą na godzinie 6. Tytanowa tarcza barwiona ogniowo na kolor niebieski lub fioletowy — proces niezwykle trudny, unikalny na polską skalę.</p>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
             <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:16px;font-weight:400;color:oklch(35% 0.018 82);">Mała sekunda na godzinie 6</span></li>
@@ -250,8 +250,8 @@
       <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:96px;align-items:center;">
         <div>
           <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Projekt 03</p>
-          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Déjà-Vu</h2>
-          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Perła emalii piecowej</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;"><!-- ac:model3_nazwa -->Déjà-Vu<!-- /ac:model3_nazwa --></h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;"><!-- ac:model3_podtytul -->Perła emalii piecowej<!-- /ac:model3_podtytul --></p>
           <p style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:400;line-height:1.75;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model uznawany przez autora za "perełkę" kolekcji. Emaliowana tarcza wykonana metodą piecową nadaje jej wyjątkowo lśniącą, szklistą powierzchnię i wysoką wartość kolekcjonerską.</p>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
             <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:16px;font-weight:400;color:oklch(35% 0.018 82);">Emaliowana tarcza metodą piecową</span></li>
@@ -261,7 +261,7 @@
           </ul>
         </div>
         <div style="overflow:hidden;aspect-ratio:4/3;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_17.jpg" alt="Ars Chrono Déjà-Vu" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="gallery_pictures/ArsChrono_Obssesion_17.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" />
         </div>
       </div>
 
@@ -270,13 +270,13 @@
       <!-- OBSESSION -->
       <div data-model-row style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
         <div style="overflow:hidden;aspect-ratio:4/3;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_21.jpg" alt="Ars Chrono Obsession" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="gallery_pictures/ArsChrono_Obssesion_21.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div>
           <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.22em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Projekt 04</p>
-          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;">Obsession</h2>
-          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;">Maestria metody treblage</p>
-          <p style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:400;line-height:1.75;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model z tarczą wykonaną wymagającą metodą <em>treblage</em>, z indeksami rzymskimi lub arabskimi. Ta metoda swoistego drążenia tarczy nadaje jej unikalny i niezwykle intrygujący charakter. Całość tarczy wykonana jest z jednego kawałka materiału z unikalną dla każdego egzemplarza fakturą.</p>
+          <h2 data-model-h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:0.04em;color:oklch(18% 0.02 82);margin:0 0 14px 0;"><!-- ac:model4_nazwa -->Obsession<!-- /ac:model4_nazwa --></h2>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:oklch(45% 0.018 82);margin:0 0 36px 0;"><!-- ac:model4_podtytul -->Maestria metody treblage<!-- /ac:model4_podtytul --></p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:400;line-height:1.75;color:oklch(35% 0.018 82);margin:0 0 36px 0;">Model z tarczą wykonaną wymagającą metodą <em>treblage</em>, z indeksami rzymskimi lub arabskimi. Ta metoda swoistego drążenia tarczy, nadaje jej unikalny i niezwykle intrygujący charakter. Całość tarczy wykonana jest z jednego kawałka materiału z unikalną dla każdego egzemplarza fakturą.</p>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:13px;">
             <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:16px;font-weight:400;color:oklch(35% 0.018 82);">Tarcza metodą treblage</span></li>
             <li style="display:flex;align-items:center;gap:18px;"><span style="width:1px;height:14px;background:oklch(59% 0.095 62);flex-shrink:0;"></span><span style="font-family:'Jost',sans-serif;font-size:16px;font-weight:400;color:oklch(35% 0.018 82);">Indeksy: rzymskie lub arabskie</span></li>
@@ -296,43 +296,55 @@
   <sc-if value="{{ isGallery }}" hint-placeholder-val="{{ false }}">
     <div data-gallery-wrap style="animation:fadeUp 0.65s ease both;padding:80px;">
       <div data-page-header style="border-bottom:1px solid oklch(88% 0.010 82);padding-bottom:56px;margin-bottom:72px;">
-        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Fotografia</p>
-        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Galeria</h1>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;"><!-- ac:galeria_label -->Fotografia<!-- /ac:galeria_label --></p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;"><!-- ac:galeria_h1 -->Galeria<!-- /ac:galeria_h1 --></h1>
       </div>
       <div data-gallery-grid style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:380px 380px;gap:4px;margin-bottom:4px;">
         <div data-gallery-main style="grid-row:1/3;overflow:hidden;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_1.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="gallery_pictures/ArsChrono_Obssesion_1.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div style="overflow:hidden;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_2.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="gallery_pictures/ArsChrono_Regulator_5.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" />
         </div>
         <div style="overflow:hidden;">
-          <img src="gallery_pictures/ArsChrono_Obssesion_3.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" />
+          <img src="gallery_pictures/ArsChrono_Obssesion_3.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" />
         </div>
       </div>
       <div data-gallery-all style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;">
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_4.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_5.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_6.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_7.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_8.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_9.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_10.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_11.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_12.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_13.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_14.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_15.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_16.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_17.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_18.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_19.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_20.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_21.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_22.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_23.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_24.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
-        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_25.jpg" alt="Ars Chrono — fotografia" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_4.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_4.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_5.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_5.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_6.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_6.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_7.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_7.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_8.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_8.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_9.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_9.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_10.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_10.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_11.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_11.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_12.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_12.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_13.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_13.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_14.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_14.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_15.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Regulator_15.jpg" alt="Ars Chrono, model Regulator" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_16.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_17.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_18.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_19.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_20.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_21.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_22.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_23.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_24.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div style="overflow:hidden;height:280px;"><img src="gallery_pictures/ArsChrono_Obssesion_25.jpg" alt="Ars Chrono, model Obsesja" style="width:100%;height:100%;object-fit:cover;" /></div>
       </div>
     </div>
   </sc-if>
@@ -341,8 +353,8 @@
   <sc-if value="{{ isCases }}" hint-placeholder-val="{{ false }}">
     <div style="animation:fadeUp 0.65s ease both;">
       <div data-page-header style="padding:80px 80px 56px;border-bottom:1px solid oklch(88% 0.010 82);">
-        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Rzemiosło</p>
-        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Grafiki na deklach koperty</h1>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;"><!-- ac:grafiki_label -->Rzemiosło<!-- /ac:grafiki_label --></p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;"><!-- ac:grafiki_h1 -->Grafiki na deklach koperty<!-- /ac:grafiki_h1 --></h1>
       </div>
       <div data-cases-hero style="position:relative;overflow:hidden;height:65vh;">
         <img src="uploads/pasted-1782667730672-0.png" alt="Dekel zegarka Dekompresja" style="width:100%;height:100%;object-fit:cover;" />
@@ -370,8 +382,8 @@
   <sc-if value="{{ isAuthor }}" hint-placeholder-val="{{ false }}">
     <div data-page-wrap style="animation:fadeUp 0.65s ease both;padding:80px;">
       <div data-page-header style="border-bottom:1px solid oklch(88% 0.010 82);padding-bottom:56px;margin-bottom:80px;">
-        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Twórca</p>
-        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">O Autorze</h1>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;"><!-- ac:autor_label -->Twórca<!-- /ac:autor_label --></p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;"><!-- ac:autor_h1 -->O Autorze<!-- /ac:autor_h1 --></h1>
       </div>
       <div data-author-grid style="display:grid;grid-template-columns:380px 1fr;gap:96px;align-items:start;">
         <div data-author-photo>
@@ -414,8 +426,8 @@
   <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
     <div style="animation:fadeUp 0.65s ease both;">
       <div data-page-header style="padding:80px 80px 56px;border-bottom:1px solid oklch(88% 0.010 82);">
-        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;">Zamówienia i pytania</p>
-        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;">Kontakt</h1>
+        <p style="font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.25em;text-transform:uppercase;color:oklch(59% 0.095 62);margin:0 0 20px 0;"><!-- ac:kontakt_label -->Zamówienia i pytania<!-- /ac:kontakt_label --></p>
+        <h1 data-page-h1 style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;letter-spacing:0.06em;color:oklch(18% 0.02 82);margin:0;"><!-- ac:kontakt_h1 -->Kontakt<!-- /ac:kontakt_h1 --></h1>
       </div>
       <div data-contact-split style="display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 280px);border-bottom:1px solid oklch(88% 0.010 82);">
         <div data-contact-panel style="padding:80px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid oklch(88% 0.010 82);">
@@ -468,14 +480,14 @@
 <footer data-footer style="background:oklch(21% 0.055 256);padding:48px 80px;display:flex;align-items:center;justify-content:space-between;">
   <div>
     <p style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;letter-spacing:0.26em;text-transform:uppercase;color:oklch(93% 0.010 85);margin:0 0 5px 0;">Ars Chrono</p>
-    <p style="font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.1em;color:oklch(52% 0.015 250);margin:0;">Polskie rzemiosło zegarmistrzowskie</p>
+    <p style="font-family:'Jost',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.1em;color:oklch(52% 0.015 250);margin:0;"><!-- ac:footer_tagline -->Polskie rzemiosło zegarmistrzowskie<!-- /ac:footer_tagline --></p>
   </div>
   <div data-footer-links style="display:flex;gap:44px;">
-    <button onClick="{{ goModels }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Modele</button>
-    <button onClick="{{ goGallery }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Galeria</button>
-    <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Grafiki</button>
-    <button onClick="{{ goAuthor }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">O Autorze</button>
-    <button onClick="{{ goContact }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);">Kontakt</button>
+    <button onClick="{{ goModels }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);"><!-- ac:nav_models -->Modele<!-- /ac:nav_models --></button>
+    <button onClick="{{ goGallery }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);"><!-- ac:nav_gallery -->Galeria<!-- /ac:nav_gallery --></button>
+    <button onClick="{{ goCases }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);"><!-- ac:nav_cases -->Grafiki<!-- /ac:nav_cases --></button>
+    <button onClick="{{ goAuthor }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);"><!-- ac:nav_author -->O Autorze<!-- /ac:nav_author --></button>
+    <button onClick="{{ goContact }}" style="background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;letter-spacing:0.14em;text-transform:uppercase;color:oklch(62% 0.015 250);padding:0;" style-hover="color:oklch(93% 0.010 85);"><!-- ac:nav_contact -->Kontakt<!-- /ac:nav_contact --></button>
   </div>
   <p style="font-family:'Jost',sans-serif;font-size:11px;font-weight:300;color:oklch(42% 0.012 250);margin:0;">© {{ year }} Ars Chrono</p>
 </footer>
@@ -486,8 +498,8 @@ class Component extends DCLogic {
 
   teasers = [
     { num: '01', name: 'Regulator',   brief: 'Decentralna wskazówka minutowa. Tarcze tytanowe, mosiężne lub z alpaki — pokrywane rodem lub złotem 24k.' },
-    { num: '02', name: 'Dekompresja', brief: 'Tytanowa tarcza barwiona ogniowo na niebiesko lub fioletowo. Unikatowy proces na polską skalę.' },
-    { num: '03', name: 'Déjà-Vu',    brief: 'Emaliowana tarcza metodą piecową — lśniąca, szklista powierzchnia o wysokiej wartości kolekcjonerskiej.' },
+    { num: '02', name: 'Dekompresja',   brief: 'Tytanowa tarcza barwiona ogniowo na niebiesko lub fioletowo. Unikatowy proces na polską skalę.' },
+    { num: '03', name: 'Déjà-Vu',   brief: 'Emaliowana tarcza metodą piecową — lśniąca, szklista powierzchnia o wysokiej wartości kolekcjonerskiej.' },
     { num: '04', name: 'Obsession',   brief: 'Tarcza metodą treblage. Indeksy rzymskie lub arabskie. Pełna personalizacja na życzenie nabywcy.' },
   ];
 
@@ -545,7 +557,10 @@ class Component extends DCLogic {
 <!-- LIGHTBOX -->
 <div id="lb" style="display:none;position:fixed;inset:0;z-index:2000;background:oklch(97.5% 0.008 85);align-items:center;justify-content:center;">
   <button id="lb-prev" style="position:absolute;left:24px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:oklch(65% 0.015 82);line-height:1;padding:16px 20px;transition:color 0.2s;">‹</button>
-  <img id="lb-img" src="" alt="" style="max-width:calc(100vw - 180px);max-height:calc(100vh - 100px);object-fit:contain;display:block;" />
+  <div style="display:flex;flex-direction:column;align-items:center;gap:20px;max-width:calc(100vw - 180px);">
+    <img id="lb-img" src="" alt="" style="max-width:100%;max-height:calc(100vh - 200px);object-fit:contain;display:block;" />
+    <p id="lb-caption" style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;letter-spacing:0.04em;color:oklch(35% 0.018 82);margin:0;text-align:center;"></p>
+  </div>
   <button id="lb-next" style="position:absolute;right:24px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:oklch(65% 0.015 82);line-height:1;padding:16px 20px;transition:color 0.2s;">›</button>
   <button id="lb-close" style="position:absolute;top:24px;right:32px;background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:oklch(45% 0.018 82);padding:8px;transition:color 0.2s;">Zamknij ×</button>
   <p id="lb-counter" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.18em;color:oklch(62% 0.015 82);margin:0;white-space:nowrap;"></p>
@@ -554,12 +569,14 @@ class Component extends DCLogic {
 (function(){
   var lb=document.getElementById('lb'),
       lbImg=document.getElementById('lb-img'),
+      lbCaption=document.getElementById('lb-caption'),
       lbCounter=document.getElementById('lb-counter'),
       imgs=[],cur=0;
 
   function show(){
     lbImg.src=imgs[cur].src;
     lbImg.alt=imgs[cur].alt||'';
+    lbCaption.textContent=imgs[cur].alt||'';
     lbCounter.textContent=(cur+1)+' / '+imgs.length;
     lb.style.display='flex';
     document.body.style.overflow='hidden';
