@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>ArsChrono — Gallery Editor</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Gallery Editor</h1>
+    <div class="actions">
+      <span id="status"></span>
+      <button id="reload-btn">Reload</button>
+      <button id="save-btn" class="primary">Save to src/03-galeria.md</button>
+    </div>
+  </header>
+
+  <section class="panel" id="featured-panel">
+    <h2>Featured (3 slots — layout in index.html)</h2>
+    <div class="featured-grid">
+      <div class="slot" data-section="featured" data-index="0" data-label="Big left"></div>
+      <div class="slot" data-section="featured" data-index="1" data-label="Top right"></div>
+      <div class="slot" data-section="featured" data-index="2" data-label="Bottom right"></div>
+    </div>
+  </section>
+
+  <section class="panel" id="grid-panel">
+    <h2>Grid (rest, current order)</h2>
+    <div class="card-list" id="grid-list"></div>
+  </section>
+
+  <section class="panel" id="new-panel">
+    <h2>New photos in folder (not yet in gallery)</h2>
+    <div class="card-list" id="new-list"></div>
+  </section>
+
+  <p class="note">Drag a card onto another slot/card to move it, or click one card then click a target to swap. This tool only writes <code>src/03-galeria.md</code> — run the "update from src/" step in Claude Code to push changes into index.html.</p>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

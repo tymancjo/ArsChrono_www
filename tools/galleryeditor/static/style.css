@@ -1,0 +1,111 @@
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, "Jost", sans-serif;
+  background: #f7f5f1;
+  color: #22201d;
+  margin: 0;
+  padding: 24px 32px 64px;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+h1 { font-size: 22px; margin: 0; }
+h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; color: #706b60; margin: 0 0 12px; }
+.actions { display: flex; align-items: center; gap: 12px; }
+button {
+  font: inherit;
+  padding: 8px 16px;
+  border: 1px solid #c8c2b6;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button.primary { background: #b48b4c; color: #fff; border-color: #b48b4c; }
+button:hover { filter: brightness(0.96); }
+#status { font-size: 13px; color: #706b60; min-height: 16px; }
+#status.error { color: #b23b3b; }
+#status.ok { color: #2f7a3d; }
+
+.panel {
+  background: #fff;
+  border: 1px solid #e3ded2;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  height: 300px;
+}
+.featured-grid .slot:nth-child(1) { grid-row: 1 / 3; }
+
+.slot {
+  position: relative;
+  border: 2px dashed #c8c2b6;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f0ede6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.slot.empty::before {
+  content: attr(data-label) " — drop or click a photo here";
+  font-size: 12px;
+  color: #a39c8d;
+  text-align: center;
+  padding: 8px;
+}
+.slot .card { position: absolute; inset: 0; border: none; border-radius: 0; }
+.slot .card img { border-radius: 0; }
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.card {
+  width: 150px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: #fff;
+  cursor: grab;
+  overflow: hidden;
+}
+.card.selected { border-color: #b48b4c; }
+.card.new { border: 2px dashed #7a97b2; }
+.card img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+.card .badge {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7a97b2;
+  padding: 4px 6px 0;
+}
+.card input {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #e3ded2;
+  padding: 6px;
+  font-size: 11px;
+  font-family: inherit;
+  background: transparent;
+}
+.card.drag-over { outline: 2px solid #b48b4c; }
+
+.note { font-size: 12px; color: #706b60; max-width: 640px; }
